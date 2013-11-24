@@ -12,5 +12,5 @@ define ->
 
     trigger: (eventName, payload) ->
       if @callbacks[eventName]
-        @callbacks[eventName].foreach (callback)->
+        @callbacks[eventName].forEach (callback)->
           callback.call @, payload

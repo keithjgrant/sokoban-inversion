@@ -7,6 +7,7 @@ should = chai.should()
 
 require [
   "#{testDir}/UserInputTest"
+  "#{testDir}/EventBusTest"
   "#{testDir}/PlayerTest"
   "#{testDir}/PushableBlockTest"
 ], ->
