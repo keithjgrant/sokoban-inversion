@@ -36,6 +36,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks "grunt-contrib-uglify"
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-contrib-requirejs"
+    grunt.loadNpmTasks "grunt-mocha"
 
     grunt.registerTask 'default', ['watch']
     grunt.registerTask 'build', ['coffee', 'requirejs']

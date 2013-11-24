@@ -8,7 +8,7 @@ define ->
       @eventBus.on 'user:down', @_attemptMoveSouth
       @eventBus.on 'user:left', @_attemptMoveWest
 
-    setNeighbors: (neighbors)
+    setNeighbors: (neighbors) ->
       @north = neighbors.north
       @east = neighbors.east
       @south = neighbors.south
