@@ -1,4 +1,4 @@
-define ['PushableBlock'], (PushableBlock) ->
+define ['entities/PushableBlock'], (PushableBlock) ->
 
   describe 'PushableBlock', ->
 

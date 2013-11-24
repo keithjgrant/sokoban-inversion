@@ -8,8 +8,8 @@ should = chai.should()
 require [
   "#{testDir}/UserInputTest"
   "#{testDir}/EventBusTest"
-  "#{testDir}/PlayerTest"
-  "#{testDir}/PushableBlockTest"
+  "#{testDir}/entities/PlayerTest"
+  "#{testDir}/entities/PushableBlockTest"
 ], ->
     mocha.run()
 
