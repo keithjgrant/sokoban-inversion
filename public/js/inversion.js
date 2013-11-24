@@ -1,0 +1,1 @@
+(function(){define("Map",[],function(){var e;return e=function(){function e(){}return e}()})}).call(this),function(){requirejs.config({baseUrl:"."}),require(["Map"],function(e){})}.call(this),define("main",function(){});
