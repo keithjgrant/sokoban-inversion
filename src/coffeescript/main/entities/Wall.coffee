@@ -1,4 +1,4 @@
-define ['Block'], (Block) ->
+define ['entities/Block'], (Block) ->
 
   class Wall extends Block
 

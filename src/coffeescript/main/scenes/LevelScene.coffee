@@ -3,13 +3,10 @@ define ['LevelParser', 'renderers/LevelRenderer', 'levels'], (LevelParser, Level
   class LevelScene
 
     constructor: (@levelNum) ->
-      @_init()
-
-    _init: ->
       @_generateLevel()
-      @_renderer = new LevelRenderer @level
+      @renderer = new LevelRenderer @level
 
     _generateLevel: ->
       levelData = levels[@levelNum]
-      parser = new LevelParser()
+      parser = new LevelParser @eventBus
       @level = parser.parse levelData

@@ -1,6 +1,5 @@
 define ->
 
-  # early level definition
   # w - wall
   # a - white   A - white keystone
   # b - blue    B - blue keystone
