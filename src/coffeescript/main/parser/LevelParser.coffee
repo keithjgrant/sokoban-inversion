@@ -1,5 +1,5 @@
-define ['Level', 'parser/BlockFactory', 'parser/GoalFactory', 'entities/Player], (Level, BlockFactory, GoalFactory, Player) ->
-  
+define ['Level', 'parser/BlockFactory', 'parser/GoalFactory', 'entities/Player'], (Level, BlockFactory, GoalFactory, Player) ->
+
   class LevelParser
 
     constructor: (@eventBus) ->

@@ -1,4 +1,4 @@
-define ['LevelParser', 'renderers/LevelRenderer', 'levels'], (LevelParser, LevelRenderer, levels) ->
+define ['parser/LevelParser', 'renderers/LevelRenderer', 'levels'], (LevelParser, LevelRenderer, levels) ->
 
   class LevelScene
 

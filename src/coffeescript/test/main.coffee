@@ -10,6 +10,7 @@ require [
   "#{testDir}/EventBusTest"
   "#{testDir}/entities/PlayerTest"
   "#{testDir}/entities/PushableBlockTest"
+  "#{testDir}/parser/LevelParserTest"
 ], ->
     mocha.run()
 
