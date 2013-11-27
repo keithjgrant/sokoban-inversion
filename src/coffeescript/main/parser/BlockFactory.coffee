@@ -2,15 +2,16 @@ define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway'], (Wall, P
 
   class BlockFactory
 
-    blockByChar:
-      w: @_createWall
-      a: @_createPushableWhite
-      A: @_createPushableWhiteKeystone
-      b: @_createPushableBlue
-      B: @_createPushableBlueKeystone
-      c: @_createPushableRed
-      C: @_createPushableRedKeystone
-      g: @_createGateway
+    constructor: ->
+      @blockByChar =
+        w: @_createWall
+        a: @_createPushableWhite
+        A: @_createPushableWhiteKeystone
+        b: @_createPushableBlue
+        B: @_createPushableBlueKeystone
+        c: @_createPushableRed
+        C: @_createPushableRedKeystone
+        g: @_createGateway
 
     createBlock: (char, col, row) ->
       func = @blockByChar[char]
