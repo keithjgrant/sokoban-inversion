@@ -2,12 +2,13 @@ define ['entities/Goal'], (Goal) ->
 
   class GoalFactory
 
-    goalByChar:
-      w: @_createWhite
-      b: @_createBlue
-      r: @_createRed
+    constructor: ->
+      @goalByChar =
+        w: @_createWhite
+        b: @_createBlue
+        r: @_createRed
 
-    createByChar: (char, col, row) ->
+    createGoal: (char, col, row) ->
       func = @goalByChar[char]
       func col, row
 

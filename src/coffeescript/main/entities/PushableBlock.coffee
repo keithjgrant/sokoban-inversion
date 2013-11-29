@@ -12,6 +12,9 @@ define ['entities/Block'], (Block)->
     getColor: ->
       @color
 
+    isPushable: ->
+      true
+
     canPushNorth: ->
       @_canPush @south, @north
 
@@ -23,7 +26,7 @@ define ['entities/Block'], (Block)->
 
     canPushWest: ->
       @_canPush @east, @west
-      
+
     _canPush: (fromBlock, toBlock) ->
       if @getColor() is toBlock.getColor()
         false

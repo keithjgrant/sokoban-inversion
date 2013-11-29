@@ -5,8 +5,5 @@ define ['entities/Block'], (Block) ->
     isPushable: ->
       false
 
-    isCoverable: ->
-      false
-
     getColor: ->
-      ''
+      'WALL'

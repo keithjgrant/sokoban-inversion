@@ -2,7 +2,7 @@ define ['parser/LevelParser', 'renderers/LevelRenderer', 'levels'], (LevelParser
 
   class LevelScene
 
-    constructor: (@levelNum) ->
+    constructor: (@eventBus, @levelNum) ->
       @_generateLevel()
       @renderer = new LevelRenderer @level
 

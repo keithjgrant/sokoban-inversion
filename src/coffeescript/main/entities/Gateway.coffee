@@ -1,3 +1,9 @@
-define ->
+define ['entities/Block'], (Block) ->
 
-    class Gateway
+    class Gateway extends Block
+
+      isPushable: ->
+        false
+
+      getColor: ->
+        'GATE'

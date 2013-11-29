@@ -17,38 +17,38 @@ define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway'], (Wall, P
       func = @blockByChar[char]
       func col, row
 
-    _createWall: (col, row) ->
+    _createWall: (col, row) =>
       new Wall col, row
 
-    _createPushableWhite: (col, row) ->
+    _createPushableWhite: (col, row) =>
       block = new PushableBlock col, row
       block.setColor 'white'
       block
 
-    _createPushableWhiteKeystone: (col, row) ->
+    _createPushableWhiteKeystone: (col, row) =>
       block = @_createPushableWhite col, row
       block.setKeystone()
       block
 
-    _createPushableBlue: (col, row) ->
+    _createPushableBlue: (col, row) =>
       block = new PushableBlock col, row
       block.setColor 'blue'
       block
 
-    _createPushableBlueKeystone: (col, row) ->
+    _createPushableBlueKeystone: (col, row) =>
       block = @_createPushableBlue col, row
       block.setKeystone()
       block
 
-    _createPushableRed: (col, row) ->
+    _createPushableRed: (col, row) =>
       block = new PushableBlock col, row
       block.setColor 'red'
       block
 
-    _createPushableRedKeystone: (col, row) ->
+    _createPushableRedKeystone: (col, row) =>
       block = @_createPushableRed col, row
       block.setKeystone()
       block
 
-    _createGateway: (col, row) ->
+    _createGateway: (col, row) =>
       new Gateway col, row

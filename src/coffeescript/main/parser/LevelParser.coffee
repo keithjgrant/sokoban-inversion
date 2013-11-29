@@ -14,10 +14,10 @@ define ['Level', 'parser/BlockFactory', 'parser/GoalFactory', 'entities/Player']
       @level
 
     _parseBlocks: ->
-      for row in @data.blocks
-        for col in [0..row.length]
-          char = row[col]
-          block = @blockFactory.createBlock char, col, row
+      for row, rowNum in @data.blocks
+        for colNum in [0..row.length-1]
+          char = row[colNum]
+          block = @blockFactory.createBlock char, colNum, rowNum
           @level.addBlock block
 
     _parseGoals: ->

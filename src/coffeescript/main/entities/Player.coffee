@@ -8,6 +8,15 @@ define ->
       @eventBus.on 'user:down', @_attemptMoveSouth
       @eventBus.on 'user:left', @_attemptMoveWest
 
+    getCoords: ->
+      [@col, @row]
+
+    getColumn: ->
+      @col
+
+    getRow: ->
+      @row
+
     setNeighbors: (neighbors) ->
       @north = neighbors.north
       @east = neighbors.east
@@ -15,35 +24,35 @@ define ->
       @west = neighbors.west
 
     _attemptMoveNorth: =>
-      if @neighbors.north.canPushNorth()
-        _moveNorth()
+      if @north.canMoveNorth()
+        @_moveNorth()
 
     _moveNorth: ->
-      @neighbors.north.pushNorth()
+      @north.pushNorth()
       @_move 0, -1
 
     _attemptMoveEast: =>
-      if @neighbors.east.canPushEast()
-        _moveEast()
+      if @east.canMoveEast()
+        @_moveEast()
 
     _moveEast: ->
-      @neighbors.east.pushEast()
+      @east.pushEast()
       @_move 1, 0
 
     _attemptMoveSouth: =>
-      if @neighbors.south.canPushSouth()
-        _moveSouth()
+      if @south.canMoveSouth()
+        @_moveSouth()
 
     _moveSouth: ->
-      @neighbors.south.pushSouth()
+      @south.pushSouth()
       @_move 0, 1
 
     _attemptMoveWest: =>
-      if @neighbors.west.canPushWest()
-        _moveWest()
+      if @west.canMoveWest()
+        @_moveWest()
 
     _moveWest: ->
-      @neighbors.west.pushWest()
+      @west.pushWest()
       @_move -1, 0
 
     _move: (dx, dy) ->
