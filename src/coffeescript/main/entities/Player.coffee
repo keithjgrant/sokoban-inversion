@@ -1,4 +1,4 @@
-define ->
+define -> #['PlayerMovementEvent'], (PlayerMovementEvent) ->
 
   class Player
 
@@ -17,14 +17,10 @@ define ->
     getRow: ->
       @row
 
-    setNeighbors: (neighbors) ->
-      @north = neighbors.north
-      @east = neighbors.east
-      @south = neighbors.south
-      @west = neighbors.west
+    setBlockGrid: (@blockGrid) ->
 
     _attemptMoveNorth: =>
-      if @north.canMoveNorth()
+      if @blockGrid.canMoveNorth()
         @_moveNorth()
 
     _moveNorth: ->
@@ -32,7 +28,7 @@ define ->
       @_move 0, -1
 
     _attemptMoveEast: =>
-      if @east.canMoveEast()
+      if @blockGrid.canMoveEast()
         @_moveEast()
 
     _moveEast: ->
@@ -40,7 +36,7 @@ define ->
       @_move 1, 0
 
     _attemptMoveSouth: =>
-      if @south.canMoveSouth()
+      if @blockGrid.canMoveSouth()
         @_moveSouth()
 
     _moveSouth: ->
@@ -48,7 +44,7 @@ define ->
       @_move 0, 1
 
     _attemptMoveWest: =>
-      if @west.canMoveWest()
+      if @blockGrid.canMoveWest()
         @_moveWest()
 
     _moveWest: ->

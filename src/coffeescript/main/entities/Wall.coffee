@@ -1,4 +1,4 @@
-define ['entities/Block'], (Block) ->
+define ['entities/Block', 'entities/colors'], (Block, colors) ->
 
   class Wall extends Block
 
@@ -6,4 +6,4 @@ define ['entities/Block'], (Block) ->
       false
 
     getColor: ->
-      'WALL'
+      colors.WALL

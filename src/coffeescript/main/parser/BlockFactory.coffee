@@ -1,4 +1,4 @@
-define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway'], (Wall, PushableBlock, Gateway) ->
+define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway', 'entities/colors'], (Wall, PushableBlock, Gateway, colors) ->
 
   class BlockFactory
 
@@ -22,7 +22,7 @@ define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway'], (Wall, P
 
     _createPushableWhite: (col, row) =>
       block = new PushableBlock col, row
-      block.setColor 'white'
+      block.setColor colors.WHITE
       block
 
     _createPushableWhiteKeystone: (col, row) =>
@@ -32,7 +32,7 @@ define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway'], (Wall, P
 
     _createPushableBlue: (col, row) =>
       block = new PushableBlock col, row
-      block.setColor 'blue'
+      block.setColor colors.BLUE
       block
 
     _createPushableBlueKeystone: (col, row) =>
@@ -42,7 +42,7 @@ define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway'], (Wall, P
 
     _createPushableRed: (col, row) =>
       block = new PushableBlock col, row
-      block.setColor 'red'
+      block.setColor colors.RED
       block
 
     _createPushableRedKeystone: (col, row) =>

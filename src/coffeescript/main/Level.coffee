@@ -1,9 +1,9 @@
-define ->
+define ['entities/BlockGrid'], (BlockGrid) ->
 
   class Level
 
     constructor: ->
-      @blocks = []
+      @blocks = new BlockGrid()
       @goals = []
 
     setPlayer: (@player) ->
@@ -12,7 +12,7 @@ define ->
       @player
 
     addBlock: (block) ->
-      @blocks.push block
+      @blocks.addBlock block
 
     getBlocks: ->
       @blocks
@@ -22,3 +22,9 @@ define ->
 
     getGoals: ->
       @goals
+
+    isComplete: ->
+      for goal, i in @goals
+        unless goal.isSatisfied @blocks
+          return false
+      true

@@ -1,4 +1,4 @@
-define ['entities/Block'], (Block) ->
+define ['entities/Block', 'entities/colors'], (Block, colors) ->
 
     class Gateway extends Block
 
@@ -6,4 +6,4 @@ define ['entities/Block'], (Block) ->
         false
 
       getColor: ->
-        'GATE'
+        colors.GATEWAY

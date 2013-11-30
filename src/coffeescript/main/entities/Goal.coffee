@@ -18,7 +18,9 @@ define ->
     getColor: ->
       @color
 
-    setBlock: (@block)
-
-    isSatisfied: ->
-      @block?.getColor() is @getColor()
+    isSatisfied: (blockGrid) ->
+      block = blockGrid.findBlock @col, @row
+      if block
+        block.getColor() is @getColor()
+      else
+        false

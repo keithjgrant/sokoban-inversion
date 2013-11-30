@@ -1,4 +1,4 @@
-define ['entities/Goal'], (Goal) ->
+define ['entities/Goal', 'entities/colors'], (Goal, colors) ->
 
   class GoalFactory
 
@@ -14,15 +14,15 @@ define ['entities/Goal'], (Goal) ->
 
     _createWhite: (col, row) ->
       goal = new Goal col, row
-      goal.setColor 'white'
+      goal.setColor colors.WHITE
       goal
 
     _createBlue: (col, row) ->
       goal = new Goal col, row
-      goal.setColor 'blue'
+      goal.setColor colors.BLUE
       goal
 
     _createRed: (col, row) ->
       goal = new Goal col, row
-      goal.setColor 'red'
+      goal.setColor colors.RED
       goal

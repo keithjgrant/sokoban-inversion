@@ -4,18 +4,19 @@ define ['entities/Player', 'EventBus'], (Player, EventBus) ->
 
     beforeEach ->
       @eventBus = new EventBus()
+      @blockGrid = {}
       @player = new Player @eventBus, 3, 3
+      @player.setBlockGrid @blockGrid
 
     describe 'when able to move north', ->
       beforeEach ->
-        @fakeNeighbor =
-          canMoveNorth: sinon.stub().returns true
-          pushNorth: sinon.stub()
+        @blockGrid.canMoveNorth = sinon.stub().returns true
+        @blockGrid.moveNorth = sinon.stub()
+
       it 'should move north', ->
-        @player.setNeighbors north: @fakeNeighbor
         @eventBus.trigger 'user:up'
 
-        @fakeNeighbor.pushNorth.calledOnce.should.be.true
+        @blockGrid.moveNorth.calledOnce.should.be.true
 
     describe 'when able to move east', ->
       beforeEach ->

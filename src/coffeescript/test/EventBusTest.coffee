@@ -10,7 +10,7 @@ define ['EventBus'], (EventBus) ->
       beforeEach ->
         @callback = sinon.spy()
         @eventBus.on 'foo:event', @callback
-  
+
       it 'should invoke callback on trigger', ->
         @callback.callCount.should.equal 0
 
@@ -23,6 +23,17 @@ define ['EventBus'], (EventBus) ->
 
         @callback.calledOnce.should.be.true
         @callback.firstCall.args[0].should.equal 'payload'
+
+      it 'should not trigger callback if different event triggered', ->
+        @eventBus.trigger 'foo:otherEvent'
+
+        @callback.callCount.should.equal 0
+
+      it 'should stop triggering after off() called', ->
+        @eventBus.off 'foo:event', @callback
+        @eventBus.trigger 'foo:event'
+
+        @callback.callCount.should.equal 0
 
     describe 'when multiple callbacks registered', ->
 
@@ -37,3 +48,15 @@ define ['EventBus'], (EventBus) ->
 
         @callbackOne.calledOnce.should.be.true
         @callbackTwo.calledOnce.should.be.true
+
+    describe 'when callback registered with one()', ->
+
+      beforeEach ->
+        @callback = sinon.spy()
+        @eventBus.one 'foo:event', @callback
+
+      it 'should invoke callback only once', ->
+        @eventBus.trigger 'foo:event'
+        @eventBus.trigger 'foo:event'
+
+        @callback.calledOnce.should.be.true
