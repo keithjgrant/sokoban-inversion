@@ -10,6 +10,7 @@ require [
   "#{testDir}/EventBusTest"
   "#{testDir}/LevelTest"
   "#{testDir}/GameTest"
+  "#{testDir}/PlayerMovementEventTest"
   "#{testDir}/entities/PlayerTest"
   "#{testDir}/entities/PushableBlockTest"
   "#{testDir}/entities/BlockGridTest"

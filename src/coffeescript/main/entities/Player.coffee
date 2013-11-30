@@ -1,12 +1,13 @@
-define -> #['PlayerMovementEvent'], (PlayerMovementEvent) ->
+define ['PlayerMovementEvent'], (PlayerMovementEvent) ->
 
   class Player
 
     constructor: (@eventBus, @col, @row) ->
-      @eventBus.on 'user:up', @_attemptMoveNorth
-      @eventBus.on 'user:right', @_attemptMoveEast
-      @eventBus.on 'user:down', @_attemptMoveSouth
-      @eventBus.on 'user:left', @_attemptMoveWest
+      @isMoving = false
+      @eventBus.on 'user:up', @_moveNorth
+      @eventBus.on 'user:right', @_moveEast
+      @eventBus.on 'user:down', @_moveSouth
+      @eventBus.on 'user:left', @_moveWest
 
     getCoords: ->
       [@col, @row]
@@ -17,40 +18,29 @@ define -> #['PlayerMovementEvent'], (PlayerMovementEvent) ->
     getRow: ->
       @row
 
-    setBlockGrid: (@blockGrid) ->
-
-    _attemptMoveNorth: =>
-      if @blockGrid.canMoveNorth()
-        @_moveNorth()
-
-    _moveNorth: ->
-      @north.pushNorth()
+    _moveNorth: =>
       @_move 0, -1
 
-    _attemptMoveEast: =>
-      if @blockGrid.canMoveEast()
-        @_moveEast()
-
-    _moveEast: ->
-      @east.pushEast()
+    _moveEast: =>
       @_move 1, 0
 
-    _attemptMoveSouth: =>
-      if @blockGrid.canMoveSouth()
-        @_moveSouth()
-
-    _moveSouth: ->
-      @south.pushSouth()
+    _moveSouth: =>
       @_move 0, 1
 
-    _attemptMoveWest: =>
-      if @blockGrid.canMoveWest()
-        @_moveWest()
-
-    _moveWest: ->
-      @west.pushWest()
+    _moveWest: =>
       @_move -1, 0
 
     _move: (dx, dy) ->
       @col += dx
       @row += dy
+      @isMoving = true
+      movement = new PlayerMovementEvent @getCoords, [dx, dy]
+      movement.then @_handleMovementDone, @_handleMovementFailure
+      @eventBus.trigger 'player:movement', movement
+
+    _handleMovementFailure: (movement) =>
+      [@col, @row] = movement.getOriginCoords()
+      @isMoving = false
+
+    _handleMovementDone: (movement) =>
+      @isMoving = false

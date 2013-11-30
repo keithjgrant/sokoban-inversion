@@ -1,8 +1,0 @@
-define ->
-
-  class PlayerMovementEvent
-
-    constructor: (@startCol, @startRow) ->
-
-    cancel: ->
-

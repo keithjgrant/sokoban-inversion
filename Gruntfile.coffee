@@ -1,5 +1,5 @@
 module.exports = (grunt) ->
-    
+
   grunt.initConfig
 
     coffee:
@@ -37,6 +37,7 @@ module.exports = (grunt) ->
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-contrib-requirejs"
     grunt.loadNpmTasks "grunt-mocha"
+    grunt.loadNpmTasks "grunt-notify"
 
     grunt.registerTask 'default', ['watch']
     grunt.registerTask 'build', ['coffee', 'requirejs']

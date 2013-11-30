@@ -1,19 +1,24 @@
 {
-    "name": "sokoban-inversion",
-    "version": "0.1.0",
-    "description": "A new twist on Sokoban",
-    "author": {
-        "name": "Keith J Grant",
-        "email": "keith@elucidblue.com",
-        "url": "http://elucidblue.com"
-    },
-    "devDependencies": {
-        "grunt": "~0.4.1",
-        "grunt-lib-contrib": "~0.6.1",
-        "grunt-contrib-uglify": "~0.2.7",
-        "grunt-contrib-requirejs": "~0.4.1",
-        "grunt-contrib-coffee": "~0.7.0",
-        "grunt-contrib-watch": "~0.5.3",
-        "grunt-mocha": "~0.4.6"
-    }
+  "name": "sokoban-inversion",
+  "version": "0.1.0",
+  "description": "A new twist on Sokoban",
+  "author": {
+    "name": "Keith J Grant",
+    "email": "keith@elucidblue.com",
+    "url": "http://elucidblue.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/keithjgrant/sokoban-inversion.git"
+  },
+  "devDependencies": {
+    "grunt": "~0.4.1",
+    "grunt-lib-contrib": "~0.6.1",
+    "grunt-contrib-uglify": "~0.2.7",
+    "grunt-contrib-requirejs": "~0.4.1",
+    "grunt-contrib-coffee": "~0.7.0",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-mocha": "~0.4.6",
+    "grunt-notify": "~0.2.16"
+  }
 }

@@ -2,11 +2,11 @@ define ['entities/Player', 'EventBus'], (Player, EventBus) ->
 
   describe 'Player', ->
 
+    # TODO: tests fail - waiting to make sure I like the new
+    # PlayerMovementEvent approach
     beforeEach ->
       @eventBus = new EventBus()
-      @blockGrid = {}
       @player = new Player @eventBus, 3, 3
-      @player.setBlockGrid @blockGrid
 
     describe 'when able to move north', ->
       beforeEach ->
