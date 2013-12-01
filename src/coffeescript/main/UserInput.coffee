@@ -8,8 +8,8 @@ define ['config'], (config) ->
 
     _generateKeymap: ->
       @keymap = {}
-      for event, keycodes of config.controls
-        for code in keycodes
+      for event, keyCodes of config.controls
+        for code in keyCodes
           @keymap[code] = event
 
     _registerInputEvents: ->
@@ -17,12 +17,12 @@ define ['config'], (config) ->
       document.addEventListener 'keyup', @_handleKeyUp
 
     _handleKeyDown: (event) =>
-      @_triggerEvent 'keydown', event.keycode
+      @_triggerEvent 'keydown', event.keyCode
 
     _handleKeyUp: (event) =>
-      @_triggerEvent 'keyup', event.keycode
+      @_triggerEvent 'keyup', event.keyCode
 
-    _triggerEvent: (eventType, keycode) ->
-      movement = @keymap[event.keycode]
+    _triggerEvent: (eventType, keyCode) ->
+      movement = @keymap[event.keyCode]
       if movement
         @eventBus.trigger "user:#{eventType}:#{movement}"

@@ -6,6 +6,7 @@
 }
 
 .block, .goal, .player {
+    box-sizing: border-box;
     background: url(sprites.png) no-repeat;
     position: absolute;
     height: 32px;

@@ -30,14 +30,17 @@ define ->
       [col, row]
 
     resolve: ->
+      @state = states.RESOLVED
       for callback in @onSuccess
         callback @
 
     resolveStep: ->
+      console.log 'RESOLVED (step)'
       @blockPushed = false
       @resolve()
 
     resolvePush: ->
+      console.log 'RESOLVED (push)'
       @blockPushed = true
       @resolve()
 
@@ -45,14 +48,22 @@ define ->
       @blockPushed
 
     reject: ->
+      console.log 'REJECTED'
+      @state = states.REJECTED
       for callback in @onFailure
         callback @
 
     done: (callback) ->
-      @onSuccess.push callback
+      if @state is states.PENDING
+        @onSuccess.push callback
+      else if @state is states.RESOLVED
+        callback @
 
     fail: (callback) ->
-      @onFailure.push callback
+      if @state is states.PENDING
+        @onFailure.push callback
+      else if @state is states.REJECTED
+        callback @
 
     then: (successCallback, failureCallback) ->
       @done successCallback

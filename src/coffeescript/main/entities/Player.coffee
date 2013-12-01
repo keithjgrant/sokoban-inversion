@@ -4,10 +4,11 @@ define ['PlayerMovementEvent'], (PlayerMovementEvent) ->
 
     constructor: (@eventBus, @col, @row) ->
       @isMoving = false
-      @eventBus.on 'user:up', @_moveNorth
-      @eventBus.on 'user:right', @_moveEast
-      @eventBus.on 'user:down', @_moveSouth
-      @eventBus.on 'user:left', @_moveWest
+      # TODO listen to keydown+keyup, allow user to hold key
+      @eventBus.on 'user:keydown:up', @_moveNorth
+      @eventBus.on 'user:keydown:right', @_moveEast
+      @eventBus.on 'user:keydown:down', @_moveSouth
+      @eventBus.on 'user:keydown:left', @_moveWest
 
     getCoords: ->
       [@col, @row]
@@ -31,11 +32,11 @@ define ['PlayerMovementEvent'], (PlayerMovementEvent) ->
       @_move -1, 0
 
     _move: (dx, dy) ->
+      @isMoving = true
+      movement = new PlayerMovementEvent @getCoords(), [dx, dy]
+      movement.then @_handleMovementDone, @_handleMovementFailure
       @col += dx
       @row += dy
-      @isMoving = true
-      movement = new PlayerMovementEvent @getCoords, [dx, dy]
-      movement.then @_handleMovementDone, @_handleMovementFailure
       @eventBus.trigger 'player:movement', movement
 
     _handleMovementFailure: (movement) =>

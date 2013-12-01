@@ -12,7 +12,7 @@ define ['UserInput', 'config'], (UserInput, config) ->
 
       beforeEach ->
         event = new Event 'keydown'
-        event.keycode = config.controls.up[0]
+        event.keyCode = config.controls.up[0]
         document.dispatchEvent event
 
       it 'should trigger user:keydown:up', ->
@@ -24,7 +24,7 @@ define ['UserInput', 'config'], (UserInput, config) ->
 
       beforeEach ->
         event = new Event 'keyup'
-        event.keycode = config.controls.up[0]
+        event.keyCode = config.controls.up[0]
         document.dispatchEvent event
 
       it 'should trigger user:keyup:up', ->

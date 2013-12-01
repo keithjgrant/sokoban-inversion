@@ -3,13 +3,14 @@ module.exports = (grunt) ->
   grunt.initConfig
 
     coffee:
+      options:
+        sourceMap: true
       compile:
         expand: true
         cwd: 'src/coffeescript'
         src: ['**/*.coffee']
         dest: 'src/javascript/'
         ext: '.js'
-        sourceMap: true
 
     requirejs:
       optimize:
@@ -17,11 +18,14 @@ module.exports = (grunt) ->
           name: 'main'
           baseUrl: 'src/javascript/main'
           out: 'public/js/inversion.js'
+          # generateSourceMaps: true
+          # preserveLicenseComments: false
+          # optimize: 'uglify2'
 
-    uglify:
-      minify:
-        files:
-          'public/js/inversion.min.js': 'public/js/inversion.js'
+    # uglify:
+    #   minify:
+    #     files:
+    #       'public/js/inversion.min.js': 'public/js/inversion.js'
 
     mocha:
       test:
@@ -33,7 +37,7 @@ module.exports = (grunt) ->
 
 
     grunt.loadNpmTasks "grunt-contrib-coffee"
-    grunt.loadNpmTasks "grunt-contrib-uglify"
+    # grunt.loadNpmTasks "grunt-contrib-uglify"
     grunt.loadNpmTasks "grunt-contrib-watch"
     grunt.loadNpmTasks "grunt-contrib-requirejs"
     grunt.loadNpmTasks "grunt-mocha"

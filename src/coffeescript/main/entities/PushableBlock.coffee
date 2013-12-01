@@ -35,3 +35,9 @@ define ['entities/Block'], (Block)->
       else
         true
 
+    moveTo: (coords) ->
+      [@col, @row] = coords
+
+    pushOverTo: (coords) ->
+      # TODO: fix for animation
+      @moveTo coords

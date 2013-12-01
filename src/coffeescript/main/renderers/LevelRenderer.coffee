@@ -58,7 +58,7 @@ define ['renderers/BlockRenderer', 'renderers/GoalRenderer', 'renderers/PlayerRe
     _renderPlayer: =>
       @playerRenderer.render()
 
-    _handlePlayerMovement: (movement) ->
+    _handlePlayerMovement: (movement) =>
       movement.done =>
         @_renderPlayer()
         if movement.isBlockPushed()

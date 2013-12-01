@@ -35,6 +35,12 @@ define ['PlayerMovementEvent'], (PlayerMovementEvent) ->
       it 'should not invoke failure callback', ->
         @failureCallback.callCount.should.equal 0
 
+      it 'should invoke callback added after resolution', ->
+        newCallback = sinon.spy()
+        @movement.done newCallback
+
+        newCallback.calledOnce.should.be.true
+
     describe 'when rejected', ->
 
       beforeEach ->
@@ -52,3 +58,9 @@ define ['PlayerMovementEvent'], (PlayerMovementEvent) ->
 
       it 'should not invoke success callback', ->
         @failureCallback.callCount.should.equal 0
+
+      it 'should invoke callback added after rejection', ->
+        newCallback = sinon.spy()
+        @movement.fail newCallback
+
+        newCallback.calledOnce.should.be.true

@@ -25,3 +25,7 @@ define ['config'], (config) ->
       y = @block.getRow() * config.blockSize
       @element.style.left = "#{x}px"
       @element.style.top = "#{y}px"
+      if config.debug
+        @element.style.fontSize = "8px"
+        @element.style.padding = "2px"
+        @element.innerHTML = "#{@block.getColumn()}, #{@block.getRow()}"
