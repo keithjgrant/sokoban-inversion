@@ -3,7 +3,8 @@ define ['Level'], (Level) ->
   describe 'Level', ->
 
     beforeEach ->
-      @level = new Level()
+      @eventBus = on: sinon.stub()
+      @level = new Level @eventBus
 
     it 'should pass BlockGrid into goals', ->
       fakeBlock =

@@ -9,6 +9,7 @@ define ->
 
     constructor: (@originCoords, @coordDeltas) ->
       @state = states.PENDING
+      @blockPushed = false
       @onSuccess = []
       @onFailure = []
 
@@ -31,6 +32,17 @@ define ->
     resolve: ->
       for callback in @onSuccess
         callback @
+
+    resolveStep: ->
+      @blockPushed = false
+      @resolve()
+
+    resolvePush: ->
+      @blockPushed = true
+      @resolve()
+
+    isBlockPushed: ->
+      @blockPushed
 
     reject: ->
       for callback in @onFailure

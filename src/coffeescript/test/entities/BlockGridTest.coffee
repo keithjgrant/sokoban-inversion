@@ -3,7 +3,8 @@ define ['entities/BlockGrid'], (BlockGrid) ->
   describe 'BlockGrid', ->
 
     beforeEach ->
-      @grid = new BlockGrid()
+      @eventBus = on: sinon.stub()
+      @grid = new BlockGrid @eventBus
       @fakeBlocks = [
           getColumn: sinon.stub().returns 1
           getRow: sinon.stub().returns 2

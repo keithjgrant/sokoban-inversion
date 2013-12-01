@@ -4,9 +4,9 @@ define ['scenes/LevelScene'], (LevelScene) ->
   class Game
 
     constructor: (@eventBus) ->
-      @loadTitleScene()
+      @loadLevelScene 0
 
     loadTitleScene: ->
 
     loadLevelScene: (levelNum) ->
-      @currentScene = new LevelScene levelNum
+      @currentScene = new LevelScene @eventBus, levelNum

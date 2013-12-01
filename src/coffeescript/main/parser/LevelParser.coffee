@@ -7,7 +7,7 @@ define ['Level', 'parser/BlockFactory', 'parser/GoalFactory', 'entities/Player']
       @goalFactory = new GoalFactory()
 
     parse: (@data) ->
-      @level = new Level()
+      @level = new Level @eventBus
       @_parseBlocks()
       @_parseGoals()
       @_parsePlayer()

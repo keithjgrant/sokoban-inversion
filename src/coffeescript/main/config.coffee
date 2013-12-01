@@ -13,6 +13,11 @@ define ->
     ENTER: 13
     SPACEBAR: 32
 
+  containerId: 'si-stage'
+  blockSize: 32
+  columns: 16
+  rows: 12
+  debug: true
   controls:
     up: [keycodes.W, keycodes.UP_ARROW]
     down: [keycodes.S, keycodes.DOWN_ARROW]
@@ -20,5 +25,3 @@ define ->
     right: [keycodes.D, keycodes.RIGHT_ARROW]
     esc: [keycodes.ESC]
     select: [keycodes.ENTER, keycodes.SPACEBAR]
-  tileSize: 32
-  debug: true

@@ -2,8 +2,8 @@ define ['entities/BlockGrid'], (BlockGrid) ->
 
   class Level
 
-    constructor: ->
-      @blocks = new BlockGrid()
+    constructor: (@eventBus) ->
+      @blocks = new BlockGrid @eventBus
       @goals = []
 
     setPlayer: (@player) ->
@@ -14,7 +14,7 @@ define ['entities/BlockGrid'], (BlockGrid) ->
     addBlock: (block) ->
       @blocks.addBlock block
 
-    getBlocks: ->
+    getBlockGrid: ->
       @blocks
 
     addGoal: (goal) ->

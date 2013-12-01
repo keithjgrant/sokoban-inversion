@@ -4,7 +4,8 @@ define ['parser/LevelParser', 'renderers/LevelRenderer', 'levels'], (LevelParser
 
     constructor: (@eventBus, @levelNum) ->
       @_generateLevel()
-      @renderer = new LevelRenderer @level
+      @renderer = new LevelRenderer @eventBus, @level
+      @renderer.render()
 
     _generateLevel: ->
       levelData = levels[@levelNum]

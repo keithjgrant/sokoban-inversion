@@ -1,0 +1,62 @@
+#si-stage {
+    position: relative;
+    margin: 0 auto;
+    height: 384px; /* 32px*12 */
+    width: 512px; /* 32px*16 */
+}
+
+.block, .goal, .player {
+    background: url(sprites.png) no-repeat;
+    position: absolute;
+    height: 32px;
+    width: 32px;
+}
+
+.player {
+    background-position: 0 0;
+    z-index: 20;
+}
+
+.block {
+    z-index: 1;
+}
+.block.is-moving {
+    z-index: 2;
+}
+.block-white {
+    background-position: 0 -32px;
+}
+.block-white-keystone {
+    background-position: -32px -32px;
+}
+.block-blue {
+    background-position: 0 -64px;
+}
+.block-blue-keystone {
+    background-position: -32px -64px;
+}
+.block-red {
+    background-position: 0 -96px;
+}
+.block-red-keystone {
+    background-position: -32px -96px;
+}
+.block-wall {
+    background-position: -32px 0;
+}
+.block-gateway {
+    background-position: -64px 0;
+}
+
+.goal {
+    z-index: 10;
+}
+.goal-white {
+    background-position: -64px -32px;
+}
+.goal-blue {
+    background-position: -64px -64px;
+}
+.goal-red {
+    background-position: -64px -96px;
+}
