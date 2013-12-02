@@ -35,12 +35,10 @@ define ->
         callback @
 
     resolveStep: ->
-      console.log 'RESOLVED (step)'
       @blockPushed = false
       @resolve()
 
     resolvePush: ->
-      console.log 'RESOLVED (push)'
       @blockPushed = true
       @resolve()
 
@@ -48,7 +46,6 @@ define ->
       @blockPushed
 
     reject: ->
-      console.log 'REJECTED'
       @state = states.REJECTED
       for callback in @onFailure
         callback @

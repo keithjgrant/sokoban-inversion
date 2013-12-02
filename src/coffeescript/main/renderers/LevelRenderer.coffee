@@ -32,7 +32,7 @@ define ['renderers/BlockRenderer', 'renderers/GoalRenderer', 'renderers/PlayerRe
 
     _createPlayerRenderer: ->
       player = @level.getPlayer()
-      @playerRenderer = new PlayerRenderer @container, player
+      @playerRenderer = new PlayerRenderer @eventBus, @container, player
 
     _initContainer: ->
       id = config.containerId

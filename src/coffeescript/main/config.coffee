@@ -18,6 +18,7 @@ define ->
   columns: 16
   rows: 12
   debug: true
+  debugVerbose: false
   controls:
     up: [keycodes.W, keycodes.UP_ARROW]
     down: [keycodes.S, keycodes.DOWN_ARROW]

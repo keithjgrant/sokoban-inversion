@@ -31,7 +31,6 @@ define ->
       playerBlock = @findBlock movement.getOriginCoords()
       destinationBlock = @findBlock movement.getDestinationCoords()
 
-      console.debug 'STEP', playerBlock.getColor(), destinationBlock.getColor()
       playerBlock.getColor() is destinationBlock?.getColor()
 
     _attemptPush: (movement) ->
@@ -55,8 +54,6 @@ define ->
       currentColor = playerBlock.getColor()
       blockColor = block?.getColor()
       targetColor = targetBlock?.getColor()
-
-      console.debug 'PUSH', currentColor, blockColor, targetColor
 
       currentColor isnt blockColor and currentColor is targetColor
 

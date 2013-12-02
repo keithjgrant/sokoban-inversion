@@ -21,6 +21,6 @@ define ->
     isSatisfied: (blockGrid) ->
       block = blockGrid.findBlock @col, @row
       if block
-        block.getColor() is @getColor()
+        block.isKeystone() and block.getColor() is @getColor()
       else
         false

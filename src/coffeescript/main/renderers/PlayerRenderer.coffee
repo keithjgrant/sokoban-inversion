@@ -1,8 +1,8 @@
-define ['config'], (config) ->
+define ['renderers/transitionEnd', 'config'], (transitionEnd, config) ->
 
   class PlayerRenderer
 
-    constructor: (@container, @player) ->
+    constructor: (@eventBus, @container, @player) ->
 
     render: ->
       @_initElement()
@@ -13,9 +13,17 @@ define ['config'], (config) ->
         @element = document.createElement 'div'
         @element.className = "player"
         @container.appendChild @element
+        @_listenForTransitionEnd()
 
     _updatePosition: ->
       x = @player.getColumn() * config.blockSize
       y = @player.getRow() * config.blockSize
       @element.style.left = "#{x}px"
       @element.style.top = "#{y}px"
+
+    _listenForTransitionEnd: ->
+      if transitionEnd
+        @element.addEventListener transitionEnd, =>
+          @eventBus.trigger 'player:movement:complete'
+      else
+        alert 'Your browser is not supported'

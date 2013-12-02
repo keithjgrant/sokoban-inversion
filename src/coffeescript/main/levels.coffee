@@ -8,22 +8,37 @@ define ->
 
   [
     blocks: [
-        'wwwwwwwwwwwwwwww'
-        'wwwwwwwwwwwwwwww'
-        'wwwwwaawaaawwwww'
-        'wwwwwaaBaaaaawww'
-        'wwwwaaawwBwaawww'
-        'wwwwaBawaawawwww'
-        'wwwwwwBwaawawwww'
-        'wwwwwwaBaaaawwww'
-        'wwwwwwBwawaawwww'
-        'wwwwwwaaawwwwwww'
-        'wwwwwwwwwwwwwwww'
-        'wwwwwwwwwwwwwwww'
-      ]
-    goals: [
-      [8, 5, 'b'], [8, 6, 'b'], [8, 7, 'b'], [9, 5, 'b'], [9, 6, 'b'], [9, 7, 'b']
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwaaaaaaaawwww'
+      'wwwwaaaaaaaawwww'
+      'wwwwaaBaaCaawwww'
+      'wwwwaaaaaaaawwww'
+      'wwwwaaaaaaaawwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
     ]
+    goals: [[6, 6, 'b'], [9, 6, 'r']]
+    player: [5, 4]
+  ,
+    blocks: [
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwaawaaawwwww'
+      'wwwwwaaBaaaaawww'
+      'wwwwaaawwBwaawww'
+      'wwwwaBawaawawwww'
+      'wwwwwwBwaawawwww'
+      'wwwwwwaBaaaawwww'
+      'wwwwwwBwawaawwww'
+      'wwwwwwaaawwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+    ]
+    goals: [[8, 5, 'b'], [8, 6, 'b'], [8, 7, 'b'], [9, 5, 'b'], [9, 6, 'b'], [9, 7, 'b']]
     player: [6, 7]
   ,
     [
