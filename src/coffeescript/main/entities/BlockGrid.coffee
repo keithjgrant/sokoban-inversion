@@ -31,7 +31,12 @@ define ->
       playerBlock = @findBlock movement.getOriginCoords()
       destinationBlock = @findBlock movement.getDestinationCoords()
 
-      playerBlock.getColor() is destinationBlock?.getColor()
+      if playerBlock.getColor() is destinationBlock?.getColor()
+        true
+      else if playerBlock.isGateway() or destinationBlock?.isGateway()
+        true
+      else
+        false
 
     _attemptPush: (movement) ->
       playerBlock = @findBlock movement.getOriginCoords()

@@ -7,23 +7,23 @@ define ->
   # g - gateway
 
   [
-    blocks: [
-      'wwwwwwwwwwwwwwww'
-      'wwwwwwwwwwwwwwww'
-      'wwwwwwwwwwwwwwww'
-      'wwwwaaaaaaaawwww'
-      'wwwwaaaaaaaawwww'
-      'wwwwaaBaaCaawwww'
-      'wwwwaaaaaaaawwww'
-      'wwwwaaaaaaaawwww'
-      'wwwwwwwwwwwwwwww'
-      'wwwwwwwwwwwwwwww'
-      'wwwwwwwwwwwwwwww'
-      'wwwwwwwwwwwwwwww'
-    ]
-    goals: [[6, 6, 'b'], [9, 6, 'r']]
-    player: [5, 4]
-  ,
+  #   blocks: [
+  #     'wwwwwwwwwwwwwwww'
+  #     'wwwwwwwwwwwwwwww'
+  #     'wwwwwwwwwwwwwwww'
+  #     'wwwwaaaaaaaawwww'
+  #     'wwwwaaaaaaaawwww'
+  #     'wwwwaaBaaCaawwww'
+  #     'wwwwaaaaaaaawwww'
+  #     'wwwwaaaaaaaawwww'
+  #     'wwwwwwwwwwwwwwww'
+  #     'wwwwwwwwwwwwwwww'
+  #     'wwwwwwwwwwwwwwww'
+  #     'wwwwwwwwwwwwwwww'
+  #   ]
+  #   goals: [[6, 6, 'b'], [9, 6, 'r']]
+  #   player: [5, 4]
+  # ,
     blocks: [
       'wwwwwwwwwwwwwwww'
       'wwwwwwwwwwwwwwww'

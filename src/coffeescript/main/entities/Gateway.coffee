@@ -5,5 +5,8 @@ define ['entities/Block', 'entities/colors'], (Block, colors) ->
       isPushable: ->
         false
 
+      isGateway: ->
+        true
+
       getColor: ->
         colors.GATEWAY

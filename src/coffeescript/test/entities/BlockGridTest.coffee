@@ -1,4 +1,4 @@
-define ['entities/BlockGrid', 'entities/PushableBlock'], (BlockGrid, PushableBlock) ->
+define ['entities/BlockGrid', 'entities/PushableBlock', 'entities/Gateway'], (BlockGrid, PushableBlock, Gateway) ->
 
   describe 'BlockGrid', ->
 
@@ -50,7 +50,7 @@ define ['entities/BlockGrid', 'entities/PushableBlock'], (BlockGrid, PushableBlo
         onMovementCallback = @eventBus.on.firstCall.args[1]
         onMovementCallback @event
 
-      it 'should resolve PlayerMovementEvent', ->
+      it 'should resolve PlayerMovementEvent with push', ->
         @event.resolvePush.calledOnce.should.be.true
 
       it 'should set new coordinates on pushed block', ->
@@ -67,3 +67,27 @@ define ['entities/BlockGrid', 'entities/PushableBlock'], (BlockGrid, PushableBlo
       it 'should find pushed-over block at new location', ->
         @grid.findBlock(7, 8).should.equal @blocks[2]
 
+    describe 'when stepping onto gateway', ->
+
+      beforeEach ->
+        @blocks = []
+        @blocks[0] = new PushableBlock 7, 7
+        @blocks[0].setColor 'white'
+        @blocks[1] = new Gateway 7, 8
+        @blocks.forEach (block) =>
+          @grid.addBlock block
+        @event =
+          getOriginCoords: sinon.stub().returns [7, 7]
+          getDestinationCoords: sinon.stub().returns [7, 8]
+          getNextCoords: sinon.stub().returns [7, 9]
+          resolveStep: sinon.spy()
+
+        onMovementCallback = @eventBus.on.firstCall.args[1]
+        onMovementCallback @event
+
+      it 'should resolve PlayerMovementEvent with step', ->
+        @event.resolveStep.calledOnce.should.be.true
+
+      it 'should not change coordinates of blocks', ->
+        @blocks[0].getCoords().should.eql [7, 7]
+        @blocks[1].getCoords().should.eql [7, 8]

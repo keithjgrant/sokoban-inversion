@@ -12,3 +12,9 @@ define ->
 
     getRow: ->
       @row
+
+    isPushable: ->
+      false
+
+    isGateway: ->
+      false

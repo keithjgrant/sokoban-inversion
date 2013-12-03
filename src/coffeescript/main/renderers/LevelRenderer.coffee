@@ -9,6 +9,15 @@ define ['renderers/BlockRenderer', 'renderers/GoalRenderer', 'renderers/PlayerRe
       @_createPlayerRenderer()
       @eventBus.on 'player:movement', @_handlePlayerMovement
 
+    _initContainer: ->
+      id = config.containerId
+      @container = document.getElementById id
+      unless @container
+        @container = document.createElement 'div'
+        @container.id = id
+        document.body.appendChild @container
+      @container.innerHtml = ''
+
     _createBlockRenderers: ->
       @blockRenderers = []
       blockGrid = @level.getBlockGrid()
@@ -33,14 +42,6 @@ define ['renderers/BlockRenderer', 'renderers/GoalRenderer', 'renderers/PlayerRe
     _createPlayerRenderer: ->
       player = @level.getPlayer()
       @playerRenderer = new PlayerRenderer @eventBus, @container, player
-
-    _initContainer: ->
-      id = config.containerId
-      @container = document.getElementById id
-      unless @container
-        @container = document.createElement 'div'
-        @container.id = id
-        document.body.appendChild @container
 
     render: ->
       @_renderBlocks()
