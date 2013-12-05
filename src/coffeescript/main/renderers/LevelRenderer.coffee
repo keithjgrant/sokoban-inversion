@@ -2,21 +2,11 @@ define ['renderers/BlockRenderer', 'renderers/GoalRenderer', 'renderers/PlayerRe
 
   class LevelRenderer
 
-    constructor: (@eventBus, @level) ->
-      @_initContainer()
+    constructor: (@eventBus, @container, @level) ->
       @_createBlockRenderers()
       @_createGoalRenderers()
       @_createPlayerRenderer()
       @eventBus.on 'player:movement', @_handlePlayerMovement
-
-    _initContainer: ->
-      id = config.containerId
-      @container = document.getElementById id
-      unless @container
-        @container = document.createElement 'div'
-        @container.id = id
-        document.body.appendChild @container
-      @container.innerHtml = ''
 
     _createBlockRenderers: ->
       @blockRenderers = []

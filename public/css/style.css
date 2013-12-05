@@ -1,8 +1,77 @@
+@-webkit-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-moz-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@-o-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+@keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
+
+@-webkit-keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); } }
+}
+@-moz-keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); } }
+}
+@-o-keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); } }
+}
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(359deg); } }
+}
+
 #si-stage {
     position: relative;
     margin: 0 auto;
     height: 384px; /* 32px*12 */
     width: 512px; /* 32px*16 */
+    font-family: 'Abel', sans-serif;
+}
+#si-stage > div {
+    position: absolute;
+}
+.is-loading::after {
+    position: absolute;
+    content: ' ';
+    top: 150px;
+    left: 50%;
+    margin-top: -5px;
+    margin-left: -5px;
+    height: 10px;
+    width: 10px;
+    border-top: #666 2px solid;
+    border-right: #666 2px solid;
+    border-radius: 10px;
+    -webkit-animation: spin .5s infinite;
+       -moz-animation: spin .5s infinite;
+         -o-animation: spin .5s infinite;
+            animation: spin .5s infinite;
+}
+
+
+.title {
+    width: 100%;
+    text-align: center;
+    font-family: 'Chango', cursive;
+}
+.title-sokoban {
+    top: 40px;
+    font-size: 40px;
+    color: #1c80c3;
+    -webkit-animation: fadeIn .5s;
+       -moz-animation: fadeIn .5s;
+         -o-animation: fadeIn .5s;
+            animation: fadeIn .5s;
+}
+.title-inversion {
+    top: 60px;
+    font-size: 20px;
+    color: #faf3e0;
+    text-shadow: 1px 1px 1px #999;
+    -webkit-animation: fadeIn 2s;
+       -moz-animation: fadeIn 2s;
+         -o-animation: fadeIn 2s;
+            animation: fadeIn 2s;
 }
 
 .block, .goal, .player {

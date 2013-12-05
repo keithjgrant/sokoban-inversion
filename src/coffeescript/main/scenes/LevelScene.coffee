@@ -2,9 +2,9 @@ define ['parser/LevelParser', 'renderers/LevelRenderer', 'levels'], (LevelParser
 
   class LevelScene
 
-    constructor: (@eventBus, @levelNum) ->
+    constructor: (@eventBus, @container, @levelNum) ->
       @_generateLevel()
-      @renderer = new LevelRenderer @eventBus, @level
+      @renderer = new LevelRenderer @eventBus, @container, @level
       @renderer.render()
       @eventBus.on 'player:movement:complete', @_checkForLevelCompletion
 
