@@ -18,9 +18,9 @@ module.exports = (grunt) ->
           name: 'main'
           baseUrl: 'src/javascript/main'
           out: 'public/js/inversion.js'
-          # generateSourceMaps: true
-          # preserveLicenseComments: false
-          # optimize: 'uglify2'
+          generateSourceMaps: true
+          preserveLicenseComments: false
+          optimize: 'uglify2'
 
     # uglify:
     #   minify:

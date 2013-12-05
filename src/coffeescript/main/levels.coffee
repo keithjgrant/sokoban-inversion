@@ -7,6 +7,7 @@ define ->
   # g - gateway
 
   [
+    # quick demo
   #   blocks: [
   #     'wwwwwwwwwwwwwwww'
   #     'wwwwwwwwwwwwwwww'
@@ -24,6 +25,25 @@ define ->
   #   goals: [[6, 6, 'b'], [9, 6, 'r']]
   #   player: [5, 4]
   # ,
+    # switch-four
+    blocks: [
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwaaaaagbabbwww'
+      'wwaabaBaaAbbbbww'
+      'wwaaawBabbwwAaww'
+      'wwawaawabwbbbbww'
+      'wwawaawabwbbbbww'
+      'wwaawaabbbwwaaww'
+      'wwaBaBaaAbAbbbww'
+      'wwwbaaagbbbbbwww'
+      'wwwwwwwwwwwwwwww'
+      'wwwwwwwwwwwwwwww'
+    ]
+    goals: [[10, 5, 'w'], [10, 6, 'w'], [11, 5, 'w'], [11, 6, 'w'], [4, 5, 'b'], [4, 6, 'b'], [5, 5, 'b'], [5, 6, 'b']]
+    player: [2, 5]
+  ,
+    # vanilla sokoban, tough level
     blocks: [
       'wwwwwwwwwwwwwwww'
       'wwwwwwwwwwwwwwww'

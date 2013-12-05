@@ -15,6 +15,9 @@ define ['entities/Wall', 'entities/PushableBlock', 'entities/Gateway', 'entities
 
     createBlock: (char, col, row) ->
       func = @blockByChar[char]
+      unless func
+        console.error "Unrecognized block type: #{char}"
+        func = @_createWall
       func col, row
 
     _createWall: (col, row) =>
