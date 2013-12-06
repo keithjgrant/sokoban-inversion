@@ -1,11 +1,22 @@
-define ->
+define ['config'], (config) ->
 
   class TitleScreenRenderer
 
     constructor: (@eventBus, @container) ->
+      @_createBackgroundTile()
       @_createTitle()
       @_createByline()
       @_createBeginButton()
+
+    _createBackgroundTile: ->
+      for col in [0...config.columns]
+        x = col * config.blockSize
+        for row in [0...config.rows]
+          y = row * config.blockSize
+          tile = @_createDiv '', 'block block-wall'
+          tile.style.left = "#{x}px"
+          tile.style.top = "#{y}px"
+          @container.appendChild tile
 
     _createTitle: ->
       @container.appendChild @_createDiv 'Sokoban', 'title title-sokoban'

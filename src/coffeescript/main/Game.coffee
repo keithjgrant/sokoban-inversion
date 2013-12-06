@@ -24,7 +24,7 @@ define [
       id = config.containerId
       @container = document.getElementById id
       if @container
-        # @container.className = ''
+        @container.className = ''
       else
         @container = document.createElement 'div'
         @container.id = id

@@ -4,7 +4,7 @@ requirejs.config
 require ['Game', 'EventBus'], (Game, EventBus) ->
 
   launchGame = ->
-    eventBus = new EventBus()
+    window.eventBus = eventBus = new EventBus()
     game = new Game eventBus
 
   WebFont.load

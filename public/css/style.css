@@ -3,21 +3,21 @@
 @-o-keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 @keyframes fadeIn { 0% { opacity: 0; } 100% { opacity: 1; } }
 
-@-webkit-keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(359deg); } }
+@-webkit-keyframes spinner {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
 }
-@-moz-keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(359deg); } }
+@-moz-keyframes spinner {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
 }
-@-o-keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(359deg); } }
+@-o-keyframes spinner {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); }
 }
-@keyframes spin {
+@keyframes spinner {
     0% { transform: rotate(0deg); }
-    100% { transform: rotate(359deg); } }
+    100% { transform: rotate(360deg); }
 }
 
 #si-stage {
@@ -42,10 +42,10 @@
     border-top: #666 2px solid;
     border-right: #666 2px solid;
     border-radius: 10px;
-    -webkit-animation: spin .5s infinite;
-       -moz-animation: spin .5s infinite;
-         -o-animation: spin .5s infinite;
-            animation: spin .5s infinite;
+    -webkit-animation: spinner .5s linear infinite;
+       -moz-animation: spinner .5s linear infinite;
+         -o-animation: spinner .5s linear infinite;
+            animation: spinner .5s linear infinite;
 }
 
 
@@ -68,10 +68,10 @@
     font-size: 20px;
     color: #faf3e0;
     text-shadow: 1px 1px 1px #999;
-    -webkit-animation: fadeIn 2s;
-       -moz-animation: fadeIn 2s;
-         -o-animation: fadeIn 2s;
-            animation: fadeIn 2s;
+    -webkit-animation: fadeIn 4s;
+       -moz-animation: fadeIn 4s;
+         -o-animation: fadeIn 4s;
+            animation: fadeIn 4s;
 }
 
 .block, .goal, .player {
@@ -95,10 +95,10 @@
 }
 
 .block {
-    z-index: 1;
+    z-index: 0;
 }
 .block.is-moving {
-    z-index: 2;
+    z-index: 1;
 }
 .block-white {
     background-position: 0 -32px;
